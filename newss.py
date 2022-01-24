@@ -3,6 +3,7 @@ import gspread
 from bs4 import BeautifulSoup
 import requests
 import pandas as pd
+import time
 
 # connecting Googlesheets 
 sa = gspread.service_account("creds.json")
@@ -49,7 +50,9 @@ def stocknews(company, newscell, linkcell):
     wks.update(newscell, f"{newss} - {source}")
     wks.update(linkcell, link)
 
-news = []
-stocknews(a,"G1", "H1")
-news = []
-stocknews(b, "G2", "H2")
+while True:
+    news = []
+    stocknews(a,"G1", "H1")
+    news = []
+    stocknews(b, "G2", "H2")
+    time.sleep(86400)
