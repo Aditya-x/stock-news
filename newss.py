@@ -25,9 +25,9 @@ def extract(page):
 def transform(soup):
     gcard = soup.find_all('g-card', class_="ftSUBd")
     for item in gcard:
-        news_url = item.find("div", class_="CEMjEf NUnG9d").text
+        news_url = item.find("div", class_="CEMjEf NUnG9d").text  # News Site name
         #print(news_url)
-        url1 = item.find('a').get('href')
+        url1 = item.find('a').get('href') # news article link
         # print(url)
         title = item.find("div", class_="mCBkyc y355M JQe2Ld nDgy9d").text.strip()
         # print(title)
